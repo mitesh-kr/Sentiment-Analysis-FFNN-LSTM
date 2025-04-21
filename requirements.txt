@@ -1,0 +1,8 @@
+Python 3.8+
+PyTorch
+spaCy (with English model)
+NLTK
+NumPy
+Pandas
+Matplotlib
+tqdm
