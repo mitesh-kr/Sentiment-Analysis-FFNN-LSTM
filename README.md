@@ -2,24 +2,6 @@
 
 This repository implements and compares two neural network architectures—Feed-Forward Neural Network (FFNN) and Long Short-Term Memory (LSTM) network—for sentiment analysis tasks. The implementation covers both binary and multi-class sentiment classification across multiple datasets.
 
-## Table of Contents
-- [Problem Overview](#problem-overview)
-- [Datasets](#datasets)
-- [Implementation Details](#implementation-details)
-  - [Data Preprocessing](#data-preprocessing)
-  - [Model Architectures](#model-architectures)
-- [Evaluation Metrics](#evaluation-metrics)
-- [Results and Analysis](#results-and-analysis)
-  - [IMDB Dataset Results](#imdb-dataset-results)
-  - [SemEval Dataset Results](#semeval-dataset-results)
-  - [Twitter Dataset Results](#twitter-dataset-results)
-  - [Comparative Analysis](#comparative-analysis)
-- [Error Analysis](#error-analysis)
-- [Ablation Studies](#ablation-studies)
-- [Future Work](#future-work)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
 
 ## Problem Overview
 
@@ -349,9 +331,41 @@ Several directions for future work include:
 
 5. **Ensemble Methods**: Combining predictions from multiple models could potentially improve overall performance.
 
+# Project Structure
+
+├── data_preprocessing/
+│   ├── IMDB_data_preprocess.py
+│   ├── SemEval_data_preprocess.py
+│   └── twitter_data_preprocess.py
+├── models/
+│   ├── feed_forward/
+│   │   ├── IMDB_NN_training.py
+│   │   ├── SemEval_NN_training.py
+│   │   └── twitter_NN_training.py
+│   └── lstm/
+│       ├── IMDB_LSTM_training.py
+│       ├── SemEval_LSTM_training.py
+│       └── twitter_LSTM_training.py
+├── training_graphs/
+│   ├── IMDB_lstm_training_graphs
+│   ├── IMDB_NN_training_graphs
+│   ├── SemEval_lstm_training_graphs
+│   ├── SemEval_NN_training_graphs
+│   ├── twitter_lstm_training_graphs
+│   ├── twitter_NN_training_graphs
+├── training_logs/
+│   ├── IMDB_lstm_training_logs
+│   ├── IMDB_NN_training_logs
+│   ├── SemEval_lstm_training_logs
+│   ├── SemEval_NN_training_logs
+│   ├── twitter_lstm_training_logs
+│   ├── twitter_NN_training_logs
+├── requirements.txt
+└── report.pdf
+
 ## Requirements
 
-- Python 3.7+
+- Python 3.8+
 - PyTorch
 - spaCy (with English model)
 - NLTK
@@ -382,27 +396,24 @@ python -c "import nltk; nltk.download('punkt')"
 ```
 
 ## Usage
-
+# Data Preprocessing
 ```bash
-# For training and evaluating both models on all datasets
-python sentiment_analysis.py
-
-# For training only FFNN
-python sentiment_analysis.py --model ffnn
-
-# For training only LSTM
-python sentiment_analysis.py --model lstm
-
-# For running on a specific dataset
-python sentiment_analysis.py --dataset imdb
-python sentiment_analysis.py --dataset semeval
-python sentiment_analysis.py --dataset twitter
-
-# For running ablation studies
-python sentiment_analysis.py --ablation
-
-# For visualizing results
-python visualize_results.py
+python data_preprocessing/IMDB_data_preprocess.py
+python data_preprocessing/SemEval_data_preprocess.py
+python data_preprocessing/twitter_data_preprocess.py
+```
+# Training
+```bash
+# Train Feed-Forward NN
+python models/feed_forward/IMDB_NN_training.py
+python models/feed_forward/SemEval_NN_training.py
+python models/feed_forward/twitter_NN_training.py
+```
+# Train LSTM
+```bash
+python models/lstm/IMDB_LSTM_training.py
+python models/lstm/SemEval_LSTM_training.py
+python models/lstm/twitter_LSTM_training.py
 ```
 
 ## Model Hyperparameters
