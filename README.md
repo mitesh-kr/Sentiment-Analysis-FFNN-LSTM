@@ -332,7 +332,7 @@ Several directions for future work include:
 5. **Ensemble Methods**: Combining predictions from multiple models could potentially improve overall performance.
 
 # Project Structure
-
+```bash
 ├── data_preprocessing/
 │   ├── IMDB_data_preprocess.py
 │   ├── SemEval_data_preprocess.py
@@ -362,7 +362,7 @@ Several directions for future work include:
 │   ├── twitter_NN_training_logs
 ├── requirements.txt
 └── report.pdf
-
+```
 ## Requirements
 
 - Python 3.8+
